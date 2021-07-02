@@ -356,10 +356,10 @@ export default {
             ...this.patient,
             drugName: this.drugName,
           });
-          if (resp.data.error) {
-            this.$store.commit("snackbar/setSnack", `${resp.data.reason}`);
-            return;
-          }
+          // if (resp.data.error) {
+          //   // this.$store.commit("snackbar/setSnack", `${resp.data.reason}`);
+          //   return;
+          // }
           this.enableNavigation = true;
           const patient = get(resp, "data", {});
           Object.assign(this.patient, patient);
@@ -403,8 +403,8 @@ export default {
       };
       try {
         await new Http({ auth: true }).post(`/patient/${api}Schedule`, payload);
-        const notifyText = this.newPatient ? "added" : "updated";
-        this.$store.commit("snackbar/setSnack", `Patient ${notifyText}`);
+        // const notifyText = this.newPatient ? "added" : "updated";
+        // this.$store.commit("snackbar/setSnack", `Patient ${notifyText}`);
         this.$router.push({ path: `/${this.conditionId}/treatments` });
       } catch (e) {
         console.error(e);

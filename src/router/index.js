@@ -14,49 +14,11 @@ Vue.use(Router);
 const routes = [
   {
     path: "/",
-    redirect: "/conditions",
+    redirect: "/launch?drugname=melphalan&iss=https%3A%2F%2Fehr%2Ffhir&launch=xyz123",
     component: layout,
   },
- 
   {
-    path: "/file",
-    component: layout,
-    meta: {
-      requiresAuth: true,
-      // allowedRoles: ["admin"],
-      requiresAgreement: true,
-    },
-    children: [
-      {
-        path: "",
-        name: "FileList",
-        component: () => import("@/pages/manage/file/FileList"),
-      },
-      {
-        path: "/new-file",
-        name: "AddFile",
-        component: () => import("@/pages/manage/file/AddFile"),
-      },
-    ],
-  },
-  {
-    path: "/schema",
-    component: layout,
-    meta: {
-      requiresAuth: true,
-   
-      requiresAgreement: true,
-    },
-    children: [
-      {
-        path: "",
-        name: "Schema",
-        component: () => import("@/pages/manage/treatment/index"),
-      },
-    ],
-  },
-  {
-    path: "/manage",
+    path: "/launch?drugname=melphalan&iss=https%3A%2F%2Fehr%2Ffhir&launch=xyz123",
     component: layout,
     meta: {
       requiresAuth: true,
@@ -65,29 +27,14 @@ const routes = [
     children: [
       {
         path: "",
-        name: "Manage",
-        component: () => import("@/pages/manage/index"),
+        name: "NewPatient",
+        component: () => import("@/new-components/pages/PatientDetail"),
       },
-    ],
-  },
-  {
-    path: "/conditions",
-    component: layout,
-    meta: {
-      requiresAuth: true,
-      requiresAgreement: true,
-    },
-    children: [
-      {
-        path: "",
-        name: "Condition",
-        component: () => import("@/pages/dashboard/index"),
-      },
-      {
-        path: "",
-        name: "Profile",
-        component: () => import("@/pages/profile-page/Profile"),
-      },
+      // {
+      //   path: "",
+      //   name: "Profile",
+      //   component: () => import("@/pages/profile-page/Profile"),
+      // },
     ],
   },
   {
@@ -120,21 +67,21 @@ const routes = [
       },
     ],
   },
-  {
-    path: "/:condition/treatments/:treatment/newPatient",
-    component: layout,
-    meta: {
-      requiresAuth: true,
-      requiresAgreement: true,
-    },
-    children: [
-      {
-        path: "",
-        name: "NewPatient",
-        component: () => import("@/new-components/pages/PatientDetail"),
-      },
-    ],
-  },
+  // {
+  //   path: "/:condition/treatments/:treatment/newPatient",
+  //   component: layout,
+  //   meta: {
+  //     requiresAuth: true,
+  //     requiresAgreement: true,
+  //   },
+  //   children: [
+  //     {
+  //       path: "",
+  //       name: "NewPatient",
+  //       component: () => import("@/new-components/pages/PatientDetail"),
+  //     },
+  //   ],
+  // },
   {
     path: "/:condition/treatments/:treatment/patientStatus/:mrn",
     component: layout,
@@ -151,30 +98,7 @@ const routes = [
     ],
   },
 
-  {
-    path: "/user",
-    component: layout,
-    children: [
-      {
-        path: "profile",
-        name: "profile",
-        meta: {
-          requiresAuth: true,
-          requiresAgreement: true,
-        },
-        component: () => import("@/pages/user/profile"),
-      },
-      {
-        path: "terms-and-condition",
-        name: "acceptedTermsAndCondition",
-        meta: {
-          requiresAuth: true,
-          requiresPasswordChange: true,
-        },
-        component: () => import("@/pages/Agreement"),
-      },
-    ],
-  },
+  
   {
     path: "*",
     name: "PageNotFound",

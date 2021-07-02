@@ -124,17 +124,17 @@ export class Main {
    * condition accepted  service method
    * @returns {Promise}
    */
-  static async acceptedTermsAndCondition() {
-    try {
-      const response = await new Http({ auth: true }).put(
-        utils.url.acceptedTermsAndCondition
-      );
+  // static async acceptedTermsAndCondition() {
+  //   try {
+  //     const response = await new Http({ auth: true }).put(
+  //       utils.url.acceptedTermsAndCondition
+  //     );
 
-      return response;
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  }
+  //     return response;
+  //   } catch (error) {
+  //     return Promise.reject(error);
+  //   }
+  // }
 
   /**
    * get  condition data service method

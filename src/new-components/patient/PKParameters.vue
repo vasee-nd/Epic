@@ -80,10 +80,10 @@ export default {
           message: error.response.data.message,
           color: "error",
         });
-        this.$store.commit("snackbar/setSnack", {
-          message: error.response.data.message,
-          color: "error",
-        });
+        // this.$store.commit("snackbar/setSnack", {
+        //   message: error.response.data.message,
+        //   color: "error",
+        // });
         if (error.response.data.code === 404) {
           this.$router.push({ name: "Login" });
         }

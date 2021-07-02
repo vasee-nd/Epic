@@ -73,7 +73,7 @@ export default {
           if(resp.data.fieldParameters.length > 0){
             this.schema = resp.data.fieldParameters;
           } else{
-            this.$store.commit("snackbar/setSnack",`Drug name ${resp.data.name} not yet supported`);
+            // this.$store.commit("snackbar/setSnack",`Drug name ${resp.data.name} not yet supported`);
              this.$router.push({ name: "Condition" });
           }
         }
